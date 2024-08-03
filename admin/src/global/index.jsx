@@ -62,7 +62,7 @@ export const sidebarEnteries = [
       </svg>
     ),
     name: "Products",
-    path: "/dashboard/books",
+    path: "/dashboard/products",
   },
 
   {

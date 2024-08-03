@@ -15,7 +15,7 @@ import { useLocation } from "react-router-dom";
 import { getCategoryName } from "../../../utils/constants";
 import useQuery from "../../../utils/useQuery";
 
-export default function Books() {
+export default function Products() {
   const location = useLocation();
 
   const { data: products, isLoading: loading, mutate } = useQuery("products");
@@ -23,7 +23,7 @@ export default function Books() {
   const [query, setQuery] = useState("");
 
   const filter = useCallback((products) => {
-    return products.filter((product) => {
+    return products?.filter((product) => {
       return (
         product.name.toLowerCase().includes(query.toLowerCase()) ||
         product.price.toString().includes(query) ||
@@ -66,9 +66,7 @@ export default function Books() {
           <div className="container__main__content__listing__table__header__entry">
             Price
           </div>
-          <div className="container__main__content__listing__table__header__entry">
-            Author
-          </div>
+
           <div className="container__main__content__listing__table__header__entry">
             Stock
           </div>
@@ -170,9 +168,6 @@ function TableEntry({ product, getData }) {
       </TableEntryText>
       <TableEntryText className="container__main__content__listing__table__content__list__entry">
         {product.price}
-      </TableEntryText>
-      <TableEntryText className="container__main__content__listing__table__content__list__entry">
-        {product.brand}
       </TableEntryText>
 
       <TableEntryText className="container__main__content__listing__table__content__list__entry">
