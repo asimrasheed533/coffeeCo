@@ -5,15 +5,18 @@ import pr3 from "../assets/pr-03.png";
 import useQuery from "../utils/useQuery";
 
 import ProductCard from "@components/ProductCard";
+import { Link } from "react-router-dom";
 
 export default function Index() {
   const { data: categories, isLoading } = useQuery("/categories");
-  console.log(categories, isLoading);
+  const { data: products, isLoading: productIsLoading } = useQuery("/products");
+  console.log("categories", categories, isLoading);
+  console.log("products", products, productIsLoading);
   return (
     <>
       {/* <SliderBanner /> */}
-      <div className="coffee__main__wraper">
-        <div className="coffee__main__wraper__content">
+      <div className="coffee__main__warper">
+        <div className="coffee__main__warper__content">
           Enjoy Your <span>Coffee</span> Before Your Activity
         </div>
         <div className="coffee__main__banner__img">
@@ -24,7 +27,7 @@ export default function Index() {
           />
         </div>
       </div>
-      {/* <div className="categories__container">
+      <div className="categories__container">
         {categories?.map((category) => (
           <Link
             onClick={() => {
@@ -41,19 +44,23 @@ export default function Index() {
             <div className="categories__item__name">{category.name}</div>
           </Link>
         ))}
-      </div> */}
+      </div>
 
-      {/* //new arival */}
-      <div className="arival__container">
-        <div className="arival__heading">New Arrivals</div>
-        <div className="item__container__wraper">
-          <CoffeeCard image={pr1} name="coffee" price="300" />
+      {/* //new arrival */}
+      <div className="arrival__container">
+        <div className="arrival__heading">New Arrivals</div>
+        <div className="item__container__warper">
+          {products
+            // .filter((product) => product.type === "featured")
+            ?.map((product) => (
+              <CoffeeCard key={product._id} product={product} />
+            ))}
         </div>
       </div>
-      <div className="arival__container">
-        <div className="arival__heading">New Offer</div>
+      <div className="arrival__container">
+        <div className="arrival__heading">New Offer</div>
         <Suspense fallback={<div>Loading...</div>}>
-          <div className="item__container__wraper">
+          <div className="item__container__warper">
             <ProductCard
               imgURL={pr1}
               name="coffee cco"
@@ -82,7 +89,7 @@ export default function Index() {
   );
 }
 
-function CoffeeCard({ image, name, price }) {
+function CoffeeCard({ product }) {
   return (
     <div className="item__container">
       <div className="product__frt__svg">
@@ -102,10 +109,10 @@ function CoffeeCard({ image, name, price }) {
         </svg>
       </div>
       <div className="item__container__img">
-        <img src={image} alt="fashion_style" loading="lazy" />
+        <img src={product.img} alt="fashion_style" loading="lazy" />
       </div>
-      <div className="item__container__name">{name}</div>
-      <div className="item__container__price">{price}</div>
+      <div className="item__container__name">{product.name}</div>
+      <div className="item__container__price">{product.price}</div>
     </div>
   );
 }

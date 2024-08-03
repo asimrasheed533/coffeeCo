@@ -24,7 +24,7 @@
   color: white;
 }
 
-.header__nav__link__wraper {
+.header__nav__link__warper {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -48,7 +48,7 @@
   transform: scale(1);
   color: #000000;
 }
-.header__nav__logs__wraper {
+.header__nav__logs__warper {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -104,7 +104,7 @@
   background-color: #f9d9aa;
   display: none;
 }
-.header__nav__link__wraper {
+.header__nav__link__warper {
   display: flex;
   align-items: center;
   justify-content: flex-start;
@@ -152,7 +152,7 @@
     background-color: white;
     color: rgb(253, 253, 253);
   }
-  .header__nav__link__wraper {
+  .header__nav__link__warper {
     flex-direction: column;
     position: absolute;
     margin-top: -7em;

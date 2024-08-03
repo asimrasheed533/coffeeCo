@@ -67,7 +67,7 @@ export default function Header() {
           </svg>
         </Link>
         {isOpen ? (
-          <div className="header__nav__link__wraper">
+          <div className="header__nav__link__warper">
             <Link
               onClick={() => {
                 if (window.innerWidth <= 950) {
@@ -135,7 +135,7 @@ export default function Header() {
             </Link>
           </div>
         ) : null}
-        <div className="header__nav__logs__wraper">
+        <div className="header__nav__logs__warper">
           <Link
             onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
             to="/cart"

@@ -89,9 +89,9 @@ export default function Checkout() {
       <div className="checkout__container">
         <div className="checkout__container__heading">Checkout</div>
         <div className="checkout__content__main">
-          <div className="checkout__content__wraper__from">
+          <div className="checkout__content__warper__from">
             <div className="checkout__from__heading">Shipping Address</div>
-            <div className="checkout__input__wraper">
+            <div className="checkout__input__warper">
               <div className="checkout__input__label">Country</div>
               <input
                 className="checkout__input__entry"
@@ -112,8 +112,8 @@ export default function Checkout() {
                 <div className="checkout__input__error">{countryError}</div>
               ) : null}
             </div>
-            <div className="checkout__input__wraper__name">
-              <div className="checkout__input__wraper__name__entry">
+            <div className="checkout__input__warper__name">
+              <div className="checkout__input__warper__name__entry">
                 <div className="checkout__input__label">First Name</div>
                 <input
                   className="checkout__input__entry__name"
@@ -134,7 +134,7 @@ export default function Checkout() {
                   <div className="checkout__input__error">{firstNameError}</div>
                 ) : null}
               </div>
-              <div className="checkout__input__wraper__name__entry">
+              <div className="checkout__input__warper__name__entry">
                 <div className="checkout__input__label">Last Name</div>
                 <input
                   className="checkout__input__entry__name"
@@ -156,7 +156,7 @@ export default function Checkout() {
                 ) : null}
               </div>
             </div>
-            <div className="checkout__input__wraper">
+            <div className="checkout__input__warper">
               <div className="checkout__input__label">Company Name </div>
               <input
                 className="checkout__input__entry"
@@ -177,7 +177,7 @@ export default function Checkout() {
                 <div className="checkout__input__error">{companyNameError}</div>
               ) : null}
             </div>
-            <div className="checkout__input__wraper">
+            <div className="checkout__input__warper">
               <div className="checkout__input__label">Street Address</div>
               <input
                 className="checkout__input__entry"
@@ -200,7 +200,7 @@ export default function Checkout() {
                 </div>
               ) : null}
             </div>
-            <div className="checkout__input__wraper">
+            <div className="checkout__input__warper">
               <div className="checkout__input__label">City Town</div>
               <input
                 className="checkout__input__entry"
@@ -221,7 +221,7 @@ export default function Checkout() {
                 <div className="checkout__input__error">{cityTownError}</div>
               ) : null}
             </div>
-            <div className="checkout__input__wraper">
+            <div className="checkout__input__warper">
               <div className="checkout__input__label">Zip code</div>
               <input
                 className="checkout__input__entry"
@@ -242,7 +242,7 @@ export default function Checkout() {
                 <div className="checkout__input__error">{zipCodeError}</div>
               ) : null}
             </div>
-            <div className="checkout__input__wraper">
+            <div className="checkout__input__warper">
               <div className="checkout__input__label">Number</div>
               <input
                 className="checkout__input__entry"
@@ -263,7 +263,7 @@ export default function Checkout() {
                 <div className="checkout__input__error">{numberError}</div>
               ) : null}
             </div>
-            <div className="checkout__input__wraper">
+            <div className="checkout__input__warper">
               <div className="checkout__input__label">Email</div>
               <input
                 className="checkout__input__entry"
@@ -287,7 +287,7 @@ export default function Checkout() {
           </div>
         </div>
       </div>
-      <div className="checkout__btn__wraper">
+      <div className="checkout__btn__warper">
         <button className="checkout__btn" onClick={handelCheckOut}>
           Place Order
         </button>

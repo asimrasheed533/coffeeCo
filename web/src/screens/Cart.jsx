@@ -84,7 +84,7 @@ function CartItem({ cart }) {
           <img src={cart.image} alt="cart" loading="lazy" />
         </div>
         <div className="cart__container__left__col__content">
-          <div className="cart__container__left__name__wraper">
+          <div className="cart__container__left__name__warper">
             <div className="cart__container__left__col__name">{cart.name}</div>
           </div>
 

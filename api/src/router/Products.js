@@ -1,21 +1,21 @@
 const express = require("express");
 const mongoose = require("mongoose");
+const Product = require("../model/product");
+// const schema = new mongoose.Schema({
+//   name: String,
+//   brand: String,
+//   price: Number,
+//   img: String,
+//   time: String,
+//   stock: Number,
+//   category: String,
+//   description: String,
+//   isFeatured: Boolean,
+//   isActive: Boolean,
+//   ingeredients: Array,
+// });
 
-const schema = new mongoose.Schema({
-  name: String,
-  brand: String,
-  price: Number,
-  img: String,
-  time: String,
-  stock: Number,
-  category: String,
-  description: String,
-  isFeatured: Boolean,
-  isActive: Boolean,
-  ingeredients: Array,
-});
-
-const Product = mongoose.model("Products", schema);
+// const Product = mongoose.model("Products", schema);
 const router = express.Router();
 router.get("/", async (req, res) => {
   try {
@@ -50,6 +50,7 @@ router.post("/add", async (req, res) => {
       isFeatured: req.body.isFeatured,
       isActive: req.body.isActive,
       price: req.body.price,
+
     });
     await product.save();
     return res.json(product);
@@ -61,7 +62,7 @@ router.post("/add", async (req, res) => {
 
 router.put("/:id", async (req, res) => {
   try {
-    const updateproduct = await Product.findByIdAndUpdate(req.params.id, {
+    const updateProduct = await Product.findByIdAndUpdate(req.params.id, {
       name: req.body.name,
       brand: req.body.brand,
       time: req.body.time,
@@ -74,7 +75,7 @@ router.put("/:id", async (req, res) => {
       price: req.body.price,
     });
 
-    return res.json(updateproduct);
+    return res.json(updateProduct);
   } catch (err) {
     console.log(err);
     return res.status(500).json({ error: "Something went wrong" });
