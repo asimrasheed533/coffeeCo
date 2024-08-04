@@ -1,5 +1,5 @@
 const express = require("express");
-const mongoose = require("mongoose");
+const monogoose = require("mongoose");
 const cors = require("cors");
 const userRouter = require("./router/userRouter");
 const category = require("./router/categories");
@@ -11,7 +11,7 @@ dotenv.config();
 
 // api config
 const app = express();
-const port = process.env.PORT || 8000;
+const port = process.env.PORT || 9000;
 
 //middleware
 app.use(
@@ -23,7 +23,7 @@ app.use(cors());
 app.use(morgan("dev"));
 
 // db config
-mongoose.connect(process.env.MONGO_URL).then(() => {
+monogoose.connect(process.env.MONGO_URL).then(() => {
   console.log("Database connected");
 });
 // api endpoints

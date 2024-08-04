@@ -1,4 +1,4 @@
-const mongoose = require("mongoose"); 
+const mongoose = require("mongoose");
 const productSchema = new mongoose.Schema({
   name: String,
   brand: String,
@@ -11,9 +11,10 @@ const productSchema = new mongoose.Schema({
   isActive: Boolean,
   type : {
     type: String,
-    enum: ["featured", "products", "offer"],
-    default: "products",
+    enum: ['product', 'featured', 'latest'],
+    default: 'product'
+  
   }
 });
+module.exports = mongoose.model("Product", productSchema);
 
-const Product = mongoose.model("Product", productSchema);

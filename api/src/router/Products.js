@@ -1,7 +1,6 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const Product = require("../model/product");
-
 const router = express.Router();
 router.get("/", async (req, res) => {
   try {
@@ -48,7 +47,7 @@ router.post("/add", async (req, res) => {
 
 router.put("/:id", async (req, res) => {
   try {
-    const updateProduct = await Product.findByIdAndUpdate(req.params.id, {
+    const updateproduct = await Product.findByIdAndUpdate(req.params.id, {
       name: req.body.name,
       brand: req.body.brand,
       time: req.body.time,
@@ -62,7 +61,7 @@ router.put("/:id", async (req, res) => {
       type: req.body.type,
     });
 
-    return res.json(updateProduct);
+    return res.json(updateproduct);
   } catch (err) {
     console.log(err);
     return res.status(500).json({ error: "Something went wrong" });
