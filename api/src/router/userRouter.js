@@ -2,18 +2,14 @@ const express = require("express");
 const mongoose = require("mongoose");
 const router = express.Router();
 
-const generateOTP = () => {
-  return Math.floor(1000 + Math.random() * 9000);
-};
+// const generateOTP = () => {
+//   return Math.floor(1000 + Math.random() * 9000);
+// };
 
 const schema = new mongoose.Schema({
   name: String,
   email: String,
   password: String,
-  otp: {
-    type: Number,
-    default: null,
-  },
 });
 
 const User = mongoose.model("User", schema);
