@@ -124,7 +124,7 @@ function TableEntry({ product, getData }) {
         ]}
         onChange={(e) => {
           axios
-            .put(`books/${product._id}`, {
+            .put(`products/${product._id}`, {
               isActive: e.value,
             })
             .then(() => {

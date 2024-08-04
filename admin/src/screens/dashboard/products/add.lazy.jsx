@@ -29,6 +29,7 @@ export default function ProductAdd() {
         category: category.value,
         img: image,
         price,
+        isActive: true,
       })
       .then((res) => {
         alert("Product added successfully");

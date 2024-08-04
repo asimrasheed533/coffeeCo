@@ -8,45 +8,41 @@ export default function Detail() {
   const cart = useSelector((state) => state.cart.items);
   const [size, setSize] = useState("");
   const [quantity, setQuantity] = useState(1);
-  console.log(cart);
+  console.log(cart, "cart");
+  console.log("state", state);
 
   return (
     <>
-      <div className="detial__container">
-        <div className="detial__container__col__mobile">
+      <div className="detail__container">
+        <div className="detail__container__col__mobile">
           <img
-            className="detial__container__col__main__image__mobile"
-            src={state.image}
+            className="detail__container__col__main__image__mobile"
+            src={state.img}
             alt="product men"
             loading="lazy"
           />
         </div>
-        <div className="detial__container__col">
-          <div className="deatail__imgs__warper">
-            {/* {state.images.map((img, index) => (
-              <div key={index} className="deatail__imgs__entry">
-                <img src={img} alt="women" />
-              </div>
-            ))} */}
-            <div className="deatail__imgs__entry">
-              <img src={state.image} alt="coffee" loading="lazy" />
+        <div className="detail__container__col">
+          <div className="detail__imgs__warper">
+            <div className="detail__imgs__entry">
+              <img src={state.img} alt="coffee" loading="lazy" />
             </div>
           </div>
         </div>
-        <div className="detial__container__col">
+        <div className="detail__container__col">
           <img
-            className="detial__container__col__main__image"
-            src={state.image}
+            className="detail__container__col__main__image"
+            src={state.img}
             alt="product men"
             loading="lazy"
           />
         </div>
 
-        <div className="detial__container__col">
-          <div className="detial__container__name">{state.title}</div>
-          <div className="detial__price__entry">
-            <div className="detial__price">Rs.{state.price}</div>
-            <div className="detial__price__free">FREE DELIVERY</div>
+        <div className="detail__container__col">
+          <div className="detail__container__name">{state.name}</div>
+          <div className="detail__price__entry">
+            <div className="detail__price">Rs.{state.price}</div>
+            <div className="detail__price__free">FREE DELIVERY</div>
           </div>
 
           <div className="detail__quantity">
@@ -72,21 +68,25 @@ export default function Detail() {
             </div>
           </div>
           <button
-            onClick={() =>
-              dispatch(
-                addToCart({
-                  id: state.id,
-                  image: state.image,
-                  size: size,
-                  name: state.title,
-                  price: state.price,
-                  quantity: quantity,
-                })
-              )
-            }
+            onClick={() => {
+              if (cart.find((item) => item.id === state._id)) {
+                alert("product already add");
+              } else {
+                dispatch(
+                  addToCart({
+                    id: state._id,
+                    image: state.img,
+                    size: size,
+                    name: state.name,
+                    price: state.price,
+                    quantity: quantity,
+                  })
+                );
+              }
+            }}
             className="add__cart__btn"
           >
-            ADD TO CADT
+            ADD TO Cart
           </button>
           <div className="disclaimer__title">Disclaimer</div>
           <div className="disclaimer__detail">

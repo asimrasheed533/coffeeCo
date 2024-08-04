@@ -104,7 +104,7 @@ export const sidebarEnteries = [
         />
       </svg>
     ),
-    name: "Users",
+    name: "Orders",
     path: "/dashboard/customers",
   },
 ];

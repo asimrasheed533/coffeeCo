@@ -1,9 +1,10 @@
 const express = require("express");
-const monogoose = require("mongoose");
+const mongoose = require("mongoose");
 const cors = require("cors");
 const userRouter = require("./router/userRouter");
 const category = require("./router/categories");
 const product = require("./router/Products");
+const order = require("./router/Order")
 const dotenv = require("dotenv");
 const morgan = require("morgan");
 
@@ -23,7 +24,7 @@ app.use(cors());
 app.use(morgan("dev"));
 
 // db config
-monogoose.connect(process.env.MONGO_URL).then(() => {
+mongoose.connect(process.env.MONGO_URL).then(() => {
   console.log("Database connected");
 });
 // api endpoints
@@ -35,6 +36,8 @@ app.get("/", (req, res) => {
 app.use("/api/users", userRouter);
 app.use("/api/categories", category);
 app.use("/api/products", product);
+app.use("/api/orders", order);
+
 
 //use morgen
 app.use(morgan("dev"));

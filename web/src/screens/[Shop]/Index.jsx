@@ -11,8 +11,8 @@ export default function Shop() {
   const path = pathname.split("/")[1];
   const [isActive, setIsActive] = useState(0);
   // const [filterdata, setFilterdata] = useState(null);
-  // const { data } = useQuery("/products");
-  // console.log("data", data);
+  const { data } = useQuery("/products");
+  console.log("data", data);
   // useLayoutEffect(() => {
   //   setFilterdata(data?.filter((item) => item.category === state.id));
   // }, [data, state.id]);
@@ -101,7 +101,7 @@ export default function Shop() {
       <div className="shop__products__container">
         <div className="shop__products__filter__warper">
           <div className="shop__filter__heading">
-            Total Products: <span>{cofeedata?.length}</span>
+            Total Products: <span>{data?.length}</span>
           </div>
           <div className="shop__filter__items">
             <button
@@ -163,8 +163,8 @@ export default function Shop() {
           </div>
         </div>
         <div className="shop__products__items">
-          {cofeeData.length > 0 ? (
-            cofeeData?.map((item) => <ProductCard item={item} key={item.id} />)
+          {data?.length > 0 ? (
+            data?.map((item) => <ProductCard item={item} key={item.id} />)
           ) : (
             <div className="no-data">No products available.</div>
           )}
@@ -179,7 +179,7 @@ function ProductCard({ item }) {
       onClick={() => {
         window.scrollTo(0, 0);
       }}
-      to={`${item.id}`}
+      to={`${item._id}`}
       state={item}
       className="item__container__filter"
     >
@@ -200,10 +200,10 @@ function ProductCard({ item }) {
         </svg>
       </div>
       <div className="item__filter__container__img">
-        <img src={item.image} alt="fashion_style" loading="lazy" />
+        <img src={item.img} alt="fashion_style" loading="lazy" />
       </div>
       <div className="item__container__name__warper">
-        <div className="item__container__name">{item.title}</div>
+        <div className="item__container__name">{item.name}</div>
         <div className="item__container__price">Rs:{item.price}</div>
       </div>
 
