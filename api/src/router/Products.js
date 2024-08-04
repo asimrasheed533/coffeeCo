@@ -1,21 +1,7 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const Product = require("../model/product");
-// const schema = new mongoose.Schema({
-//   name: String,
-//   brand: String,
-//   price: Number,
-//   img: String,
-//   time: String,
-//   stock: Number,
-//   category: String,
-//   description: String,
-//   isFeatured: Boolean,
-//   isActive: Boolean,
-//   ingeredients: Array,
-// });
 
-// const Product = mongoose.model("Products", schema);
 const router = express.Router();
 router.get("/", async (req, res) => {
   try {
@@ -50,7 +36,7 @@ router.post("/add", async (req, res) => {
       isFeatured: req.body.isFeatured,
       isActive: req.body.isActive,
       price: req.body.price,
-
+      type: req.body.type,
     });
     await product.save();
     return res.json(product);
@@ -73,6 +59,7 @@ router.put("/:id", async (req, res) => {
       isFeatured: req.body.isFeatured,
       isActive: req.body.isActive,
       price: req.body.price,
+      type: req.body.type,
     });
 
     return res.json(updateProduct);
