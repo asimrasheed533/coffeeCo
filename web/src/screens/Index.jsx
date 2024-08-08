@@ -51,7 +51,7 @@ export default function Index() {
         <div className="arrival__heading">New Arrivals</div>
         <div className="item__container__warper">
           {products
-            .filter((product) => product.type === "featured")
+            // .filter((product) => product.type === "featured")
             ?.map((product) => (
               <CoffeeCard key={product._id} product={product} />
             ))}
@@ -112,7 +112,7 @@ function CoffeeCard({ product }) {
         <img src={product.img} alt="fashion_style" loading="lazy" />
       </div>
       <div className="item__container__name">{product.name}</div>
-      <div className="item__container__price">{product.price}</div>
+      <div className="item__container__price">Rs:{product.price}</div>
     </Link>
   );
 }
