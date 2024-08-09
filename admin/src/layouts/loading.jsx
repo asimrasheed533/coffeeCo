@@ -1,4 +1,4 @@
-import { GridLoader } from "react-spinners";
+import { BounceLoader } from "react-spinners";
 
 export default function Loading({ dashboard }) {
   return (
@@ -10,7 +10,7 @@ export default function Loading({ dashboard }) {
           : { justifyContent: "center", alignItems: "center", height: "100vh" }
       }
     >
-      <GridLoader color="#5fd636" size={30} />
+      <BounceLoader color="#ff912b" size={50} />
       <div style={{ marginTop: 20 }}>Loading</div>
     </div>
   );
