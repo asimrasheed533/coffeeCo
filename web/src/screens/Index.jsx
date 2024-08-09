@@ -27,6 +27,7 @@ export default function Index() {
           />
         </div>
       </div>
+      <div className="categories__container__heading">Categories</div>
       <div className="categories__container">
         {categories?.map((category) => (
           <Link
@@ -51,7 +52,7 @@ export default function Index() {
         <div className="arrival__heading">New Arrivals</div>
         <div className="item__container__warper">
           {products
-            // .filter((product) => product.type === "featured")
+            .filter((product) => product.type === "featured")
             ?.map((product) => (
               <CoffeeCard key={product._id} product={product} />
             ))}
