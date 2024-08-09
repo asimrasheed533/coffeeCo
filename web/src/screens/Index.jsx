@@ -1,7 +1,5 @@
 import React, { Suspense } from "react";
 import pr1 from "../assets/pr-01.png";
-import pr2 from "../assets/pr-02.png";
-import pr3 from "../assets/pr-03.png";
 import useQuery from "../utils/useQuery";
 
 import ProductCard from "@components/ProductCard";
