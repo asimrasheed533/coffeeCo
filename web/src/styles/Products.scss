@@ -79,8 +79,9 @@
 }
 
 .item__container__name {
-  font-size: 1rem;
-  font-weight: 500;
+  font-size: 0.9rem;
+  font-weight: 600;
+  padding: 0.4em 0;
 }
 
 .item__container__flavour {
@@ -461,7 +462,7 @@
 }
 
 .add__cart__btn {
-  width: 100%;
+  width: 30%;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -470,7 +471,7 @@
   color: white;
   border-radius: 10px;
   font-size: 0.6rem;
-  padding: 1em;
+  padding: 1.3em 1em;
   cursor: pointer;
   border: none;
 }
