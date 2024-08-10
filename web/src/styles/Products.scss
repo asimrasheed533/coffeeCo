@@ -68,7 +68,6 @@
 .item__container__img {
   width: 160px;
   height: 200px;
-  padding: 0.5em;
 }
 
 .item__container__img img {
@@ -102,8 +101,8 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  flex-direction: column;
   flex-wrap: wrap;
-  gap: 0.5em;
   padding: 0 1em;
 }
 .item__container__warper {
@@ -185,7 +184,6 @@
   display: flex;
   align-items: flex-start;
   flex-direction: column;
-  gap: 0.5em;
   margin-top: 1em;
   cursor: pointer;
   text-decoration: none;
