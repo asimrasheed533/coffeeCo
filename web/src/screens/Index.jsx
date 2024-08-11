@@ -50,7 +50,7 @@ export default function Index() {
         <div className="arrival__heading">New Arrivals</div>
         <div className="item__container__warper">
           {products
-            .filter((product) => product.type === "latest")
+            // .filter((product) => product.type === "latest")
             ?.map((product) => (
               <CoffeeCard key={product._id} product={product} />
             ))}
