@@ -15,7 +15,7 @@ export default function Checkout() {
   const [numberError, setNumberError] = useState("");
   const [email, setEmail] = useState("");
   const [emailError, setEmailError] = useState("");
-  const [popupVisible, setPopupVisible] = useState(true);
+  const [popupVisible, setPopupVisible] = useState(false);
   const cart = useSelector((state) => state.cart.items);
   const handlePlaceOrder = (e) => {
     e.preventDefault();
