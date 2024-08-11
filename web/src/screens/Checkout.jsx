@@ -1,8 +1,8 @@
-import React from "react";
-import { useState } from "react";
-import { Link } from "react-router-dom";
+import React, { useState } from "react";
 import axios from "../utils/axios";
 import { useSelector } from "react-redux";
+import Lottie from "lottie-react";
+import successAnimation from "../assets/successAnimation.json";
 
 export default function Checkout() {
   const [firstName, setFirstName] = useState("");
@@ -15,27 +15,40 @@ export default function Checkout() {
   const [numberError, setNumberError] = useState("");
   const [email, setEmail] = useState("");
   const [emailError, setEmailError] = useState("");
+  const [popupVisible, setPopupVisible] = useState(true);
   const cart = useSelector((state) => state.cart.items);
-
   const handlePlaceOrder = (e) => {
     e.preventDefault();
+    let valid = true;
+
+    setFirstNameError("");
+    setLastNameError("");
+    setCityTownError("");
+    setNumberError("");
+    setEmailError("");
+
     if (!firstName) {
-      setFirstNameError(" Enter First Name");
+      setFirstNameError("Enter First Name");
+      valid = false;
     }
     if (!lastName) {
-      setLastNameError(" Enter Last Name");
+      setLastNameError("Enter Last Name");
+      valid = false;
     }
-
     if (!cityTown) {
-      setCityTownError(" Enter City Town");
+      setCityTownError("Enter City Town");
+      valid = false;
     }
-
     if (!number) {
-      setNumberError(" Enter Number");
+      setNumberError("Enter Number");
+      valid = false;
     }
     if (!email) {
-      setEmailError(" Enter Email");
+      setEmailError("Enter Email");
+      valid = false;
     }
+
+    if (!valid) return;
 
     axios
       .post("/orders", {
@@ -46,7 +59,17 @@ export default function Checkout() {
         email,
         products: cart,
       })
-      .then((res) => console.log(res.data))
+      .then((res) => {
+        console.log(res.data);
+
+        setFirstName("");
+        setLastName("");
+        setCityTown("");
+        setNumber("");
+        setEmail("");
+
+        setPopupVisible(true);
+      })
       .catch((err) => console.log(err));
   };
   return (
@@ -65,19 +88,18 @@ export default function Checkout() {
                   type="text"
                   placeholder="Enter Name"
                   value={firstName}
-                  error={firstNameError}
                   onChange={(e) => {
+                    setFirstName(e.target.value);
                     if (!e.target.value) {
                       setFirstNameError("Enter First Name");
                     } else {
                       setFirstNameError("");
                     }
-                    setFirstName(e.target.value);
                   }}
                 />
-                {firstNameError !== "" ? (
+                {firstNameError && (
                   <div className="checkout__input__error">{firstNameError}</div>
-                ) : null}
+                )}
               </div>
               <div className="checkout__input__warper__name__entry">
                 <div className="checkout__input__label">Last Name</div>
@@ -86,19 +108,18 @@ export default function Checkout() {
                   type="text"
                   placeholder="Enter Name"
                   value={lastName}
-                  error={lastNameError}
                   onChange={(e) => {
+                    setLastName(e.target.value);
                     if (!e.target.value) {
-                      setLastNameError(" Enter Last Name");
+                      setLastNameError("Enter Last Name");
                     } else {
                       setLastNameError("");
                     }
-                    setLastName(e.target.value);
                   }}
                 />
-                {lastNameError !== "" ? (
+                {lastNameError && (
                   <div className="checkout__input__error">{lastNameError}</div>
-                ) : null}
+                )}
               </div>
             </div>
             <div className="checkout__input__warper">
@@ -108,19 +129,18 @@ export default function Checkout() {
                 type="text"
                 placeholder="Enter Address"
                 value={cityTown}
-                error={cityTownError}
                 onChange={(e) => {
+                  setCityTown(e.target.value);
                   if (!e.target.value) {
-                    setCityTownError(" Enter City Town");
+                    setCityTownError("Enter City Town");
                   } else {
                     setCityTownError("");
                   }
-                  setCityTown(e.target.value);
                 }}
               />
-              {cityTownError !== "" ? (
+              {cityTownError && (
                 <div className="checkout__input__error">{cityTownError}</div>
-              ) : null}
+              )}
             </div>
 
             <div className="checkout__input__warper">
@@ -130,19 +150,18 @@ export default function Checkout() {
                 type="text"
                 placeholder="Enter Number"
                 value={number}
-                error={numberError}
                 onChange={(e) => {
+                  setNumber(e.target.value);
                   if (!e.target.value) {
-                    setNumberError(" Enter Number");
+                    setNumberError("Enter Number");
                   } else {
                     setNumberError("");
                   }
-                  setNumber(e.target.value);
                 }}
               />
-              {numberError !== "" ? (
+              {numberError && (
                 <div className="checkout__input__error">{numberError}</div>
-              ) : null}
+              )}
             </div>
             <div className="checkout__input__warper">
               <div className="checkout__input__label">Email</div>
@@ -151,19 +170,18 @@ export default function Checkout() {
                 type="email"
                 placeholder="Enter Email"
                 value={email}
-                error={emailError}
                 onChange={(e) => {
+                  setEmail(e.target.value);
                   if (!e.target.value) {
-                    setEmailError(" Enter Email");
+                    setEmailError("Enter Email");
                   } else {
                     setEmailError("");
                   }
-                  setEmail(e.target.value);
                 }}
               />
-              {emailError !== "" ? (
+              {emailError && (
                 <div className="checkout__input__error">{emailError}</div>
-              ) : null}
+              )}
             </div>
           </div>
         </div>
@@ -173,6 +191,23 @@ export default function Checkout() {
           Place Order
         </button>
       </div>
+      {popupVisible && (
+        <div className="successful__popup">
+          <div className="popup__content">
+            <div className="popup__content___title">
+              Order has been placed successfully!
+            </div>
+            {/* <img src={GifSuccess} alt="gif" /> */}
+            <Lottie animationData={successAnimation} loop={false} />
+            <button
+              className="successful__popup__button"
+              onClick={() => setPopupVisible(false)}
+            >
+              x
+            </button>
+          </div>
+        </div>
+      )}
     </>
   );
 }

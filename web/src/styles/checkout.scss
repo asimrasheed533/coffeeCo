@@ -253,6 +253,51 @@
   transition: 300ms ease-in-out;
   color: white;
 }
+.successful__popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #ee831fa6;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+
+.popup__content {
+  background: white;
+  padding: 2em;
+  border-radius: 5px;
+  text-align: center;
+  position: relative;
+}
+
+.successful__popup__button {
+  background-color: transparent;
+  background-color: #e09f14fa;
+  color: white;
+  border: none;
+  font-size: 1.3rem;
+  height: 30px;
+  width: 30px;
+  border-radius: 70px;
+  position: absolute;
+  top: -6px; /* Adjust position from the top */
+  right: -5px; /* Adjust position from the right */
+  cursor: pointer;
+  transition: 300ms ease-in-out;
+}
+.successful__popup__button:hover {
+  background-color: black;
+  transition: 300ms ease-in-out;
+}
+.popup__content___title {
+  font-size: 1.4rem;
+  font-weight: 600;
+  padding: 1em 0;
+}
 @media (max-width: 1200px) {
   .heckoyut__product__col__content {
     width: 100%;

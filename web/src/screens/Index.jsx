@@ -50,13 +50,13 @@ export default function Index() {
         <div className="arrival__heading">New Arrivals</div>
         <div className="item__container__warper">
           {products
-            .filter((product) => product.type === "featured")
+            .filter((product) => product.type === "latest")
             ?.map((product) => (
               <CoffeeCard key={product._id} product={product} />
             ))}
         </div>
       </div>
-      <div className="arrival__container">
+      {/* <div className="arrival__container">
         <div className="arrival__heading">New Offer</div>
         <Suspense fallback={<div>Loading...</div>}>
           <div className="item__container__warper">
@@ -83,7 +83,7 @@ export default function Index() {
             />
           </div>
         </Suspense>
-      </div>
+      </div> */}
     </>
   );
 }
