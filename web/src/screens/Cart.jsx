@@ -8,12 +8,9 @@ export default function Cart() {
 
   const cart = useSelector((state) => state.cart.items);
   const totalPrice = useSelector((state) => state.cart.totalPrice);
-  console.log("total price", totalPrice);
-  console.log("cart", cart);
 
   const [istext, setIstext] = useState("");
   const [istexterror, setIstexterror] = useState("");
-  console.log("cart", cart);
 
   function handelSubmit(e) {
     e.preventDefault();
@@ -79,7 +76,6 @@ export default function Cart() {
 }
 
 function CartItem({ cart }) {
-  console.log("cart i nitem", cart);
   const dispatch = useDispatch();
   return (
     <div className="cart__container__left__item">

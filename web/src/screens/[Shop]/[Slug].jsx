@@ -8,8 +8,6 @@ export default function Detail() {
   const cart = useSelector((state) => state.cart.items);
   const [size, setSize] = useState("");
   const [quantity, setQuantity] = useState(1);
-  console.log(cart, "cart");
-  console.log("state", state);
 
   return (
     <>

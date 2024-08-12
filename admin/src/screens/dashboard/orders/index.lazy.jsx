@@ -72,7 +72,7 @@ export default function orders() {
   );
 }
 
-function TableEntry({ item }) {
+function TableEntry({ item, getData }) {
   return (
     <div className="container__main__content__listing__table__content__list">
       <div className="container__main__content__listing__table__content__list__entry">
@@ -89,9 +89,12 @@ function TableEntry({ item }) {
         className="container__main__content__listing__table__content__list__entry"
         style={{ gap: 10, flexWrap: "wrap" }}
       >
-        <Avatar className="container__main__content__listing__table__content__list__entry__img" />
+        <Avatar
+          src={item.products[0].image}
+          className="container__main__content__listing__table__content__list__entry__img"
+        />
       </TableEntryImage>
-      <TableEntryText>123456789</TableEntryText>
+      <TableEntryText>{item._id}</TableEntryText>
       <TableEntryText>{item?.email}</TableEntryText>
       <TableEntryText>{item?.firstName}</TableEntryText>
       <TableEntryText>{item?.number}</TableEntryText>
