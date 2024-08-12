@@ -1,18 +1,12 @@
 import React, { Suspense } from "react";
-import pr1 from "../assets/pr-01.png";
 import useQuery from "../utils/useQuery";
-
-import ProductCard from "@components/ProductCard";
 import { Link } from "react-router-dom";
 
 export default function Index() {
   const { data: categories, isLoading } = useQuery("/categories");
   const { data: products, isLoading: productIsLoading } = useQuery("/products");
-  console.log("categories", categories, isLoading);
-  console.log("products", products, productIsLoading);
   return (
     <>
-      {/* <SliderBanner /> */}
       <div className="coffee__main__warper">
         <div className="coffee__main__warper__content">
           Enjoy Your <span>Coffee</span> Before Your Activity
@@ -45,12 +39,11 @@ export default function Index() {
         ))}
       </div>
 
-      {/* //new arrival */}
       <div className="arrival__container">
         <div className="arrival__heading">New Arrivals</div>
         <div className="item__container__warper">
           {products
-            // .filter((product) => product.type === "latest")
+            ?.filter((product) => product.type === "latest")
             ?.map((product) => (
               <CoffeeCard key={product._id} product={product} />
             ))}
@@ -90,7 +83,11 @@ export default function Index() {
 
 function CoffeeCard({ product }) {
   return (
-    <Link className="item__container">
+    <Link
+      to={`/shop/${product._id}`}
+      state={product}
+      className="item__container"
+    >
       <div className="product__frt__svg">
         <svg
           xmlns="http://www.w3.org/2000/svg"

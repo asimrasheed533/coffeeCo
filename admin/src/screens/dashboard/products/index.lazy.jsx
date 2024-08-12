@@ -101,7 +101,7 @@ function TableEntry({ product, getData }) {
         <TableEntryEditButton state={{ ...product }} />
         <TableEntryDeleteButton
           onClick={() => {
-            axios.delete(`books/${product._id}`).then(() => {
+            axios.delete(`products/${product._id}`).then(() => {
               getData();
             });
           }}

@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import axios from "../utils/axios";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import Lottie from "lottie-react";
 import successAnimation from "../assets/successAnimation.json";
+import { clearCart } from "../features/cartSlice";
 
 export default function Checkout() {
   const [firstName, setFirstName] = useState("");
@@ -17,6 +18,8 @@ export default function Checkout() {
   const [emailError, setEmailError] = useState("");
   const [popupVisible, setPopupVisible] = useState(false);
   const cart = useSelector((state) => state.cart.items);
+
+  const dispatch = useDispatch();
   const handlePlaceOrder = (e) => {
     e.preventDefault();
     let valid = true;
@@ -61,6 +64,7 @@ export default function Checkout() {
       })
       .then((res) => {
         console.log(res.data);
+        dispatch(clearCart());
 
         setFirstName("");
         setLastName("");
@@ -72,6 +76,7 @@ export default function Checkout() {
       })
       .catch((err) => console.log(err));
   };
+
   return (
     <>
       <div className="checkout__container">

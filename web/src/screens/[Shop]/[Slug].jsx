@@ -82,6 +82,7 @@ export default function Detail() {
                     quantity: quantity,
                   })
                 );
+                alert("product is add");
               }
             }}
             className="add__cart__btn"

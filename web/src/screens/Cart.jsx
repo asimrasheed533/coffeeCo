@@ -7,8 +7,10 @@ export default function Cart() {
   const navigate = useNavigate();
 
   const cart = useSelector((state) => state.cart.items);
-  console.log("cart", cart);
   const totalPrice = useSelector((state) => state.cart.totalPrice);
+  console.log("total price", totalPrice);
+  console.log("cart", cart);
+
   const [istext, setIstext] = useState("");
   const [istexterror, setIstexterror] = useState("");
   console.log("cart", cart);
@@ -57,7 +59,9 @@ export default function Cart() {
           ) : null}
           <div className="sub__total">
             <div className="sub__total__heaidng">Subtotal</div>
-            <div className="sub__total__price">Rs:15,190</div>
+            <div className="sub__total__price">
+              Rs:{Number(totalPrice).toLocaleString()}
+            </div>
           </div>
           <div className="sub__total__subheaidng">
             Taxes and shipping calculated at checkout

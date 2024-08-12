@@ -11,35 +11,35 @@ export const cartSlice = createSlice({
   initialState,
   reducers: {
     addToCart(state, action) {
-      const newitem = action.payload;
-      const existingitem = state.items.find((item) => item.id === newitem.id);
-      if (!existingitem) {
+      const newItem = action.payload;
+      const existingItem = state.items.find((item) => item.id === newItem.id);
+      if (!existingItem) {
         state.items.push({
-          id: newitem.id,
-          image: newitem.image,
-          name: newitem.name,
-          price: newitem.price,
-          quantity: newitem.quantity,
+          id: newItem.id,
+          image: newItem.image,
+          name: newItem.name,
+          price: newItem.price,
+          quantity: newItem.quantity,
         });
       } else {
-        existingitem.quantity++;
+        existingtem.quantity++;
       }
-      state.totalQuantity += newitem.quantity;
-      state.totalPrice += newitem.price;
+      state.totalQuantity += newItem.quantity;
+      state.totalPrice += newItem.price *  newItem.quantity;
     },
     removeToCart(state, action) {
-      const newitem = action.payload;
-      const existingitem = state.items.find((item) => item.id === newitem.id);
-      if (existingitem) {
-        if (existingitem.quantity === 1) {
+      const newItem = action.payload;
+      const existingItem = state.items.find((item) => item.id === newItem.id);
+      if (existingItem) {
+        if (existingItem.quantity === 1) {
           state.items = state.items.filter(
-            (item) => item.id !== existingitem.id
+            (item) => item.id !== existingItem.id
           );
         } else {
-          existingitem.quantity--;
+          existingItem.quantity--;
         }
         state.totalQuantity--;
-        state.totalPrice -= newitem.price;
+        state.totalPrice -= newItem.price;
       }
     },
     clearCart(state) {
