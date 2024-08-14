@@ -117,7 +117,7 @@ function ProductCard({ item }) {
         </svg>
       </div>
       <div className="item__filter__container__img">
-        <img src={item.img} alt="fashion_style" loading="lazy" />
+        <img src={item.img} alt="coffee" loading="lazy" />
       </div>
       <div className="item__container__name__warper">
         <div className="item__container__name">{item.name}</div>
