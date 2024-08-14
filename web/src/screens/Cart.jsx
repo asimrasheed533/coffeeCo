@@ -9,13 +9,13 @@ export default function Cart() {
   const cart = useSelector((state) => state.cart.items);
   const totalPrice = useSelector((state) => state.cart.totalPrice);
 
-  const [istext, setIstext] = useState("");
-  const [istexterror, setIstexterror] = useState("");
+  const [isText, setIsText] = useState("");
+  const [isTextError, setIsTextError] = useState("");
 
   function handelSubmit(e) {
     e.preventDefault();
-    if (!istext) {
-      setIstexterror("Enter Text Here...");
+    if (!isText) {
+      setIsTextError("Enter Text Here...");
     } else {
       navigate("/checkout");
     }
@@ -35,23 +35,23 @@ export default function Cart() {
           </div>
 
           <textarea
-            value={istext}
+            value={isText}
             onChange={(e) => {
               if (!e.target.value) {
-                setIstexterror("Enter Text Here...");
+                setIsTextError("Enter Text Here...");
               } else {
-                setIstexterror("");
+                setIsTextError("");
               }
-              setIstext(e.target.value);
+              setIsText(e.target.value);
             }}
             className="cart__container__right__note"
             cols="30"
             rows="10"
             placeholder="Add a note to your order..."
           />
-          {istexterror !== "" ? (
+          {isTextError !== "" ? (
             <div className="cart__container__right__note__error">
-              {istexterror}
+              {isTextError}
             </div>
           ) : null}
           <div className="sub__total">
