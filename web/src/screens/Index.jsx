@@ -32,7 +32,7 @@ export default function Index() {
             key={category._id}
           >
             <div className="categories__item__img">
-              <img src={category.img} alt="fashion_style" />
+              <img src={category.img} alt="coffee" />
             </div>
             <div className="categories__item__name">{category.name}</div>
           </Link>
@@ -105,7 +105,7 @@ function CoffeeCard({ product }) {
         </svg>
       </div>
       <div className="item__container__img">
-        <img src={product.img} alt="fashion_style" loading="lazy" />
+        <img src={product.img} alt="coffee" loading="lazy" />
       </div>
       <div className="item__container__name">{product.name}</div>
       <div className="item__container__price">Rs:{product.price}</div>
