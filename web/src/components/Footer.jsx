@@ -50,10 +50,13 @@ export default function Footer() {
             </svg>
           </Link>
           <div className="footer__content__col__info">
-            Fundamental Textile ensures ready-to-wear clothing and uniforms for
-            industrial clothing, healthcare, uniforms and casual fast-fashion
-            products. You just have to book an order and rest will be taken care
-            by our teams.
+          Hey Everyone! Craving a coffee that's as unique as you're. Come experience our coffee shop, where every cup is 
+            brewed with passion and care. From our unique blend method to our cozy atmosphere, we're dedicated to creating
+            the perfect coffee experience. Stop by today and let's fuel your day. You can buy a hot or cold coffee here
+            with best and unique taste. Today we give you a special offer 50% off. Take coffee and fresh your mind.
+            Join us for a taste of something special and become a part of our vibrant community. 
+          
+    
           </div>
         </div>
         <div className="footer__content__col">
@@ -74,7 +77,7 @@ export default function Footer() {
             }}
             className="footer__content__col__link"
           >
-            About
+            Menu
           </Link>
 
           <Link
@@ -84,7 +87,7 @@ export default function Footer() {
             }}
             className="footer__content__col__link"
           >
-            Services
+            About Us
           </Link>
 
           <Link
@@ -94,17 +97,17 @@ export default function Footer() {
             }}
             className="footer__content__col__link"
           >
-            Quotation
+           Contact Us 
           </Link>
         </div>
 
         <div className="footer__content__col">
-          <div className="footer__content__col__heading">Social info</div>
+          <div className="footer__content__col__heading">Social Info</div>
           <div className="footer__content__col__info">+32 434 54554543</div>
           <div className="footer__content__col__info">
-            functionstyle@gmail.com
+            coffeestore@gmail.com
           </div>
-          <div className="footer__content__col__info">www.fustion.com</div>
+          <div className="footer__content__col__info">www.coffeestore.com</div>
           <Link
             to="/"
             onClick={() => {
