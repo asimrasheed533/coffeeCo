@@ -88,11 +88,7 @@ export default function Detail() {
             ADD TO Cart
           </button>
           <div className="disclaimer__title">Disclaimer</div>
-          <div className="disclaimer__detail">
-            Actual colors of the product may vary from the colors being
-            displayed on your device.olors of the product may vary from the
-            colors being displayed on your device.
-          </div>
+          <div className="disclaimer__detail">{state.description}</div>
         </div>
       </div>
     </>
