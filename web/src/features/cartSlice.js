@@ -22,7 +22,7 @@ export const cartSlice = createSlice({
           quantity: newItem.quantity,
         });
       } else {
-        existingtem.quantity++;
+        existingItem.quantity++;
       }
       state.totalQuantity += newItem.quantity;
       state.totalPrice += newItem.price *  newItem.quantity;
