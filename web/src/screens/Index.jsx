@@ -49,34 +49,7 @@ export default function Index() {
             ))}
         </div>
       </div>
-      {/* <div className="arrival__container">
-        <div className="arrival__heading">New Offer</div>
-        <Suspense fallback={<div>Loading...</div>}>
-          <div className="item__container__warper">
-            <ProductCard
-              imgURL={pr1}
-              name="coffee cco"
-              offer="20"
-              oldPrice="200"
-              newPrice="150"
-            />
-            <ProductCard
-              imgURL={pr1}
-              name="coffee cco"
-              offer="20"
-              oldPrice="200"
-              newPrice="150"
-            />
-            <ProductCard
-              imgURL={pr1}
-              name="coffee cco"
-              offer="20"
-              oldPrice="200"
-              newPrice="150"
-            />
-          </div>
-        </Suspense>
-      </div> */}
+    
     </>
   );
 }
