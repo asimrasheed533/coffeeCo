@@ -15,7 +15,7 @@ export default function About() {
           welfare, low-waste practices, supporting women’s empowerment and
           inclusively.
         </div>
-        <div className="about__card__container">
+        <div className="about__card__container_about">
           <AboutCard
             svg={
               <svg

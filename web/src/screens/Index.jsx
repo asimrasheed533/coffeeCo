@@ -1,6 +1,9 @@
 import React, { Suspense } from "react";
 import useQuery from "../utils/useQuery";
 import { Link } from "react-router-dom";
+import AboutCard from "../components/AboutCard";
+import about1 from "../assets/about1.jpg";
+import about2 from "../assets/about2.png";
 
 export default function Index() {
   const { data: categories, isLoading } = useQuery("/categories");
@@ -49,7 +52,19 @@ export default function Index() {
             ))}
         </div>
       </div>
-    
+      <AboutCard
+        image={about1}
+        heading="Easy to Find, Easy to Buy"
+        content1="Our journey began with a simple love for coffee and a mission to source the highest quality beans from sustainable farms. We pride ourselves on offering a diverse selection of rich, flavorful blends and single-origin coffees, ensuring every sip is a delightful experience. Whether you're a casual drinker or a coffee aficionado, "
+        content2="our commitment to quality and freshness shines through in every product we offer. Join us in celebrating the art of coffee, one brew at a time."
+      />
+      <AboutCard
+        image={about2}
+        heading="Fast Shipping and Simple returns"
+        content1="All orders are packaged and shipped out by our region-based authorized Honda dealers for quick transit times and the lowest shipping rates. The majority of the orders are shipped out within 3 business days to get the parts out to you as fast as possible."
+        content2="Initiating returns are simple and easy with no hassle. All of the parts are returned back to an authorized Honda dealer for processing and inspection. If you have any questions or concerns on a return, feel free to give us a call and our returns department can provide you the most accurate information and walk you through it step by step if needed."
+        reverse
+      />
     </>
   );
 }
