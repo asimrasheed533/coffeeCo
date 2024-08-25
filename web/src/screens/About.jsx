@@ -3,17 +3,28 @@ import React from "react";
 export default function About() {
   return (
     <>
-      <div className="about__banner">
-        <div className="about__banner__heading">About Us</div>
-      </div>
-      <div className="about__content__container">
+      
+     <div className="about__content__container">
         <div className="about__content__heading">Our Story</div>
         <div className="about__content__sub__heading">
-          Coffee Wagera (CW) was launched in April 2018, with a dream to become
-          the biggest and the best coffee brand of Pakistan! From the beginning,
-          there’s a clear focus on social responsibility which includes staff
-          welfare, low-waste practices, supporting women’s empowerment and
-          inclusively.
+         
+Welcome to our cozy coffee haven, where every cup tells a story and every sip is a moment of bliss.
+ Nestled in the heart of Faisalabad, our coffee shop is more than just a place to grab your daily brew;
+  it's a sanctuary for coffee enthusiasts and seekers of genuine connections.
+
+At Coffee Store, our mission is simple yet profound: to brew happiness in every cup and create
+ a space where warmth, community, and quality unite. What sets us apart is our unwavering commitment to
+  sourcing the finest beans, handcrafting each drink with precision and care, and fostering a welcoming 
+  environment where every visitor feels like family.
+
+From the moment you step through our doors, the aroma of freshly ground coffee envelops you, inviting you 
+to unwind, converse, or simply savor a moment of tranquility. Our baristas are not just coffee makers; they 
+are artisans, pouring their passion into every latte, cappuccino, or espresso, creating not just drinks but
+ experiences that linger long after the last drop is gone.
+
+Join us at Coffee Store and become part of our story, where each cup is a chapter in a tale of 
+friendship, laughter, and the simple joy found in a perfect cup of coffee. We invite you to share in our
+ love for coffee and community, one sip at a time.
         </div>
         <div className="about__card__container_about">
           <AboutCard

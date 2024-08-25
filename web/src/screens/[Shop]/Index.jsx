@@ -15,6 +15,7 @@ export default function Shop() {
       <div className="shop__main__banner">
         <SliderBanner />
       </div>
+      <div className="categories__container__heading">Menu</div>
       <div className="shop__products__container">
         <div className="shop__products__filter__warper">
           <div className="shop__filter__heading">
@@ -90,6 +91,7 @@ export default function Shop() {
     </>
   );
 }
+
 function ProductCard({ item }) {
   return (
     <Link
@@ -100,6 +102,7 @@ function ProductCard({ item }) {
       state={item}
       className="item__container__filter"
     >
+      
       <div className="product__frt__svg">
         <svg
           xmlns="http://www.w3.org/2000/svg"

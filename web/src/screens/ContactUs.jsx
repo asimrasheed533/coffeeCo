@@ -27,9 +27,9 @@ export default function ContactUs() {
               stroke-linejoin="round"
             />
           </svg>
-          <div className="contact__info__card__heading">HeadOffice</div>
+          <div className="contact__info__card__heading">Address</div>
           <div className="contact__info__card__info">
-            19 Stanley St, Manchester M8 8SH, UK
+          Shop # 2 first floor, ASTP Food Court, ARFA Tower, Lahore - Kasur Rd
           </div>
         </div>
 
@@ -47,7 +47,7 @@ export default function ContactUs() {
             />
           </svg>
           <div className="contact__info__card__heading">Phone</div>
-          <div className="contact__info__card__info">+44 (161) 830 7342 </div>
+          <div className="contact__info__card__info">+923057525385</div>
         </div>
 
         <div className="contact__info__card">
@@ -75,7 +75,7 @@ export default function ContactUs() {
           </svg>
           <div className="contact__info__card__heading">Email</div>
           <div className="contact__info__card__info">
-            sales@fundamentaltextiles.co.uk
+            coffeestore@gmail.com
           </div>
         </div>
       </div>

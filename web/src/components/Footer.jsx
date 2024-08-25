@@ -77,7 +77,7 @@ export default function Footer() {
             }}
             className="footer__content__col__link"
           >
-            Menu
+            Shop
           </Link>
 
           <Link
@@ -103,7 +103,7 @@ export default function Footer() {
 
         <div className="footer__content__col">
           <div className="footer__content__col__heading">Social Info</div>
-          <div className="footer__content__col__info">+32 434 54554543</div>
+          <div className="footer__content__col__info">+923057525385</div>
           <div className="footer__content__col__info">
             coffeestore@gmail.com
           </div>

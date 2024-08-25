@@ -36,7 +36,7 @@ export default function SliderBanner() {
         <SwiperSlide>
           <img
             className="slider__img"
-            src="https://kopikita.id/wp-content/uploads/2022/08/coffeebean2.jpg"
+            src="https://media.istockphoto.com/id/1671952587/vector/25-discount-for-black-friday-banner-modern-design-with-black-and-white-typography-on-black.jpg?s=612x612&w=0&k=20&c=4Nnf_HZpixiRxXzfjxfWC0O2-taK3XwjfE0eIH2w2yA="
             alt="img"
             loading="lazy"
           />
@@ -44,7 +44,7 @@ export default function SliderBanner() {
         <SwiperSlide>
           <img
             className="slider__img"
-            src="https://kopikita.id/wp-content/uploads/2022/08/kopisusu.jpg"
+            src="https://media.istockphoto.com/id/511509163/photo/image-of-blackboard-menus-in-cafe-tea-and-coffee-making.jpg?s=612x612&w=0&k=20&c=VFoOy44AUvju3iwPD1DUDzg1GnTam_wu2LzYn5drU4Q="
             alt="img"
             loading="lazy"
           />
@@ -52,7 +52,7 @@ export default function SliderBanner() {
         <SwiperSlide>
           <img
             className="slider__img"
-            src="https://kopikita.id/wp-content/uploads/2022/08/cappucino.jpg"
+            src="https://media.istockphoto.com/id/1573463630/photo/border-of-various-coffee.jpg?s=1024x1024&w=is&k=20&c=wvE8lUWdCwnhlDCEuYe0Szf2NcaK31HwmLnn4edyhr4="
             alt="img"
             loading="lazy"
           />

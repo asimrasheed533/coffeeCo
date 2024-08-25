@@ -98,7 +98,7 @@ export default function Header() {
                   : "header__nav__link"
               } `}
             >
-              Menu
+              Shop
             </Link>
             <Link
               onClick={() => {
