@@ -1,24 +1,22 @@
 {
-  "$schema": false,
-  "name": "api",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "name": "book-store",
+  "license": "MIT",
   "scripts": {
-    "start": "node  ./src/index.js",
-    "dev": "nodemon  ./src/index.js"
+    "dev": "tsx watch index.ts",
+    "start": "npx tsx index.ts",
+    "generate": "prisma generate",
+    "migrate": "prisma migrate dev",
+    "pull": "prisma db pull",
+    "studio": "prisma studio"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
   "dependencies": {
-    "cors": "^2.8.5",
-    "dotenv": "^16.4.5",
-    "express": "^4.19.2",
-    "jsonwebtoken": "^9.0.2",
-    "mongoose": "^8.3.2",
-    "morgan": "^1.10.0",
-    "nodemailer": "^6.9.13",
-    "nodemon": "^3.1.0"
+    "@hono/node-server": "^1.12.2",
+    "@prisma/client": "^5.19.0",
+    "hono": "^4.5.9"
+  },
+  "devDependencies": {
+    "@types/node": "^20.11.17",
+    "prisma": "^5.19.0",
+    "tsx": "^4.7.1"
   }
 }
