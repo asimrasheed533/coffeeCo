@@ -23,11 +23,11 @@ export default function Products() {
   const [query, setQuery] = useState("");
 
   const filter = useCallback((products) => {
-    return products?.filter((product) => {
+    return products.filter((product) => {
       return (
-        product.name.toLowerCase().includes(query.toLowerCase()) ||
+        product.title.toLowerCase().includes(query.toLowerCase()) ||
         product.price.toString().includes(query) ||
-        product.brand.toLowerCase().includes(query.toLowerCase()) ||
+        product.author.toLowerCase().includes(query.toLowerCase()) ||
         product.category.toLowerCase().includes(query.toLowerCase())
       );
     });
@@ -63,6 +63,7 @@ export default function Products() {
           <div className="container__main__content__listing__table__header__entry">
             Title
           </div>
+
           <div className="container__main__content__listing__table__header__entry">
             Price
           </div>
@@ -82,11 +83,7 @@ export default function Products() {
             <Loading dashboard />
           ) : (
             filter(products).map((product) => (
-              <TableEntry
-                key={product._id}
-                product={product}
-                getData={mutate}
-              />
+              <TableEntry key={product.id} product={product} getData={mutate} />
             ))
           )}
         </div>
@@ -101,7 +98,7 @@ function TableEntry({ product, getData }) {
         <TableEntryEditButton state={{ ...product }} />
         <TableEntryDeleteButton
           onClick={() => {
-            axios.delete(`products/${product._id}`).then(() => {
+            axios.delete(`products/${product.id}`).then(() => {
               getData();
             });
           }}
@@ -124,7 +121,7 @@ function TableEntry({ product, getData }) {
         ]}
         onChange={(e) => {
           axios
-            .put(`products/${product._id}`, {
+            .put(`products/${product.id}`, {
               isActive: e.value,
             })
             .then(() => {
@@ -153,7 +150,7 @@ function TableEntry({ product, getData }) {
         ]}
         onChange={(e) => {
           axios
-            .put(`products/${product._id}`, {
+            .put(`products/${product.id}`, {
               type: e.value,
             })
             .then(() => {
@@ -164,8 +161,9 @@ function TableEntry({ product, getData }) {
 
       <TableEntryImage src={product?.img} />
       <TableEntryText className="container__main__content__listing__table__content__list__entry">
-        {product.name}
+        {product.title}
       </TableEntryText>
+
       <TableEntryText className="container__main__content__listing__table__content__list__entry">
         {product.price}
       </TableEntryText>

@@ -71,7 +71,7 @@ export default function CategorieEdit() {
         <Link
           to={backLocation}
           onClick={() => {
-            axios.put("categories/" + state._id, {
+            axios.put("categories/" + state.id, {
               name,
               img: image,
             });

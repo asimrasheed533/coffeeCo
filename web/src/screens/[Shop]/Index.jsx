@@ -98,7 +98,7 @@ function ProductCard({ item }) {
       onClick={() => {
         window.scrollTo(0, 0);
       }}
-      to={`${item._id}`}
+      to={`${item.id}`}
       state={item}
       className="item__container__filter"
     >

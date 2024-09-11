@@ -30,9 +30,9 @@ export default function Index() {
               window.scrollTo({ top: 0, behavior: "smooth" });
             }}
             to={`/${category.name}`}
-            state={{ id: category._id }}
+            state={{ id: category.id }}
             className="categories__item"
-            key={category._id}
+            key={category.id}
           >
             <div className="categories__item__img">
               <img src={category.img} alt="coffee" />
@@ -48,7 +48,7 @@ export default function Index() {
           {products
             ?.filter((product) => product.type === "latest")
             ?.map((product) => (
-              <CoffeeCard key={product._id} product={product} />
+              <CoffeeCard key={product.id} product={product} />
             ))}
         </div>
       </div>
@@ -72,7 +72,7 @@ export default function Index() {
 function CoffeeCard({ product }) {
   return (
     <Link
-      to={`/shop/${product._id}`}
+      to={`/shop/${product.id}`}
       state={product}
       className="item__container"
     >

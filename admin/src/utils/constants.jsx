@@ -5,7 +5,7 @@ let categories = [];
 axios.get("categories").then((res) => {
   categories = res.data.map((item) => ({
     label: item.name,
-    value: item._id,
+    value: item.id,
   }));
 });
 

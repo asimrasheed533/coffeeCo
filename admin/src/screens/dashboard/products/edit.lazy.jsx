@@ -54,7 +54,7 @@ export default function ProductEdit() {
       price,
     });
     axios
-      .put("products/" + state._id, {
+      .put("products/" + state.id, {
         name,
         brand,
         description,

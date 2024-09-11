@@ -67,12 +67,12 @@ export default function Detail() {
           </div>
           <button
             onClick={() => {
-              if (cart.find((item) => item.id === state._id)) {
+              if (cart.find((item) => item.id === state.id)) {
                 alert("product already add");
               } else {
                 dispatch(
                   addToCart({
-                    id: state._id,
+                    id: state.id,
                     image: state.img,
                     size: size,
                     name: state.name,
