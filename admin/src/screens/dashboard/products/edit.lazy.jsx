@@ -1,19 +1,20 @@
 import { Input, Select, Textarea } from "components";
 import { Link, useLocation, useNavigate } from "react-router-dom";
+import { categories, getCategoryName } from "../../../utils/constants";
 import { useEffect, useState } from "react";
+
 import ImageUploaderSingle from "../../../components/ImageUploaderSingle";
 import axios from "../../../utils/axios";
 import { useBackLocation } from "global";
-import { categories, getCategoryName } from "../../../utils/constants";
 
 export default function ProductEdit() {
   const { state } = useLocation();
   const navigate = useNavigate();
   const backLocation = useBackLocation();
 
-  const [name, setName] = useState("");
+  const [title, setTitle] = useState("");
 
-  const [brand, setBrand] = useState("");
+  const [author, setAuthor] = useState("");
 
   const [description, setDescription] = useState("");
 
@@ -28,8 +29,8 @@ export default function ProductEdit() {
 
   useEffect(() => {
     if (state) {
-      setName(state.name);
-      setBrand(state.brand);
+      setTitle(state.title);
+      setAuthor(state.author);
       setDescription(state.description);
       setTime(state.time);
       setStock(state.stock);
@@ -45,8 +46,8 @@ export default function ProductEdit() {
   function handleSubmit(e) {
     console.log("submitting");
     console.log("submit data", {
-      name,
-      brand,
+      title,
+      author,
       description,
       time,
       category: category.value,
@@ -55,8 +56,8 @@ export default function ProductEdit() {
     });
     axios
       .put("products/" + state.id, {
-        name,
-        brand,
+        title,
+        author,
         description,
         time,
         category: category.value,
@@ -78,17 +79,17 @@ export default function ProductEdit() {
         <div className="product__form__col__panel">
           <Input
             type="text"
-            label="Name"
-            placeholder="Enter Name"
-            value={name}
-            onChange={(e) => setName(e.target.value)}
+            label="Title"
+            placeholder="Enter Book Title"
+            value={title}
+            onChange={(e) => setTitle(e.target.value)}
           />
           <Input
             type="text"
-            label="Brand"
-            placeholder="Enter Brand"
-            value={brand}
-            onChange={(e) => setBrand(e.target.value)}
+            label="label"
+            placeholder="Enter label"
+            value={author}
+            onChange={(e) => setAuthor(e.target.value)}
           />
           <Textarea
             label="Description"
@@ -133,7 +134,6 @@ export default function ProductEdit() {
                     return;
                   }
 
-                  // max file size 1mb
                   if (file.size > 1024 * 1024) {
                     alert("File size should be less than 1mb");
                     return;
