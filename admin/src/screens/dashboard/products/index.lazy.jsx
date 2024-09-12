@@ -12,7 +12,7 @@ import Loading from "../../../layouts/loading";
 import { TableEntryDescription } from "../../../components";
 import axios from "../../../utils/axios";
 import { useLocation } from "react-router-dom";
-import { getCategoryName } from "../../../utils/constants";
+// import { getCategoryName } from "../../../utils/constants";
 import useQuery from "../../../utils/useQuery";
 
 export default function Products() {
@@ -25,10 +25,10 @@ export default function Products() {
   const filter = useCallback((products) => {
     return products.filter((product) => {
       return (
-        product.title.toLowerCase().includes(query.toLowerCase()) ||
-        product.price.toString().includes(query) ||
-        product.author.toLowerCase().includes(query.toLowerCase()) ||
-        product.category.toLowerCase().includes(query.toLowerCase())
+        product.title?.toLowerCase().includes(query.toLowerCase()) ||
+        product.price?.toString().includes(query) ||
+        product.author?.toLowerCase().includes(query.toLowerCase()) ||
+        product.category?.toLowerCase().includes(query.toLowerCase())
       );
     });
   }, []);
@@ -71,9 +71,9 @@ export default function Products() {
           <div className="container__main__content__listing__table__header__entry">
             Stock
           </div>
-          <div className="container__main__content__listing__table__header__entry">
+          {/* <div className="container__main__content__listing__table__header__entry">
             Category
-          </div>
+          </div> */}
           <div className="container__main__content__listing__table__header__entry">
             Description
           </div>
@@ -171,9 +171,9 @@ function TableEntry({ product, getData }) {
       <TableEntryText className="container__main__content__listing__table__content__list__entry">
         {product.stock}
       </TableEntryText>
-      <TableEntryText className="container__main__content__listing__table__content__list__entry">
+      {/* <TableEntryText className="container__main__content__listing__table__content__list__entry">
         {getCategoryName(product.category)}
-      </TableEntryText>
+      </TableEntryText> */}
       <TableEntryDescription className="container__main__content__listing__table__content__list__entry">
         {product?.description}
       </TableEntryDescription>
