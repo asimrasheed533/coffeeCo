@@ -8,7 +8,7 @@ orders.get("/", async (c) => {
   try {
     const order = await prisma.order.findMany();
 
-    c.json(order);
+   return c.json(order);
   } catch (err: any) {
     catchFun(err, c);
   }
@@ -60,11 +60,18 @@ orders.post("/", async (c) => {
         cityTown,
         number,
         email,
-        products,
+        products: {
+          connect: products
+            .filter((item: any) => item.id)  // Ensure the item has an `id`
+            .map((item: any) => ({
+              id: item.id  // Map to the format `{ id: item.id }`
+            })),
+        },
       },
     });
+    
 
-    c.json({
+   return c.json({
       message: "Order created successfully",
       data: newOrder,
     });
