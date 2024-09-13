@@ -3,6 +3,9 @@ import React from "react";
 export default function About() {
   return (
     <>
+     <div className="about__banner">
+        <div className="about__banner__heading">About Us</div>
+      </div>
       
      <div className="about__content__container">
         <div className="about__content__heading">Our Story</div>

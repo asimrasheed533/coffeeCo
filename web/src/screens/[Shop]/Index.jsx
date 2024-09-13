@@ -15,7 +15,7 @@ export default function Shop() {
       <div className="shop__main__banner">
         <SliderBanner />
       </div>
-      <div className="categories__container__heading">Menu</div>
+      
       <div className="shop__products__container">
         <div className="shop__products__filter__warper">
           <div className="shop__filter__heading">

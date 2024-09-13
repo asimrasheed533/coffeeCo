@@ -100,21 +100,7 @@ export default function Header() {
             >
               Shop
             </Link>
-            <Link
-              onClick={() => {
-                if (window.innerWidth <= 950) {
-                  setIsOpen(false);
-                }
-              }}
-              to="/contactUs"
-              className={`header__nav__link ${
-                isScrolled === true
-                  ? "header__nav__link__white"
-                  : "header__nav__link"
-              } `}
-            >
-              Contact
-            </Link>
+           
             <Link
               onClick={() => {
                 if (window.innerWidth <= 950) {
@@ -129,6 +115,21 @@ export default function Header() {
               } `}
             >
               About Us
+            </Link>
+            <Link
+              onClick={() => {
+                if (window.innerWidth <= 950) {
+                  setIsOpen(false);
+                }
+              }}
+              to="/contactUs"
+              className={`header__nav__link ${
+                isScrolled === true
+                  ? "header__nav__link__white"
+                  : "header__nav__link"
+              } `}
+            >
+              Contact
             </Link>
             <Link to="/login" className="header__nav__logs__login2">
               <button className="header__nav__logs__login__btn">LOGIN</button>
