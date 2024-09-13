@@ -42,18 +42,16 @@ products.post("/add", async (c) => {
       type,
     } = await c.req.json();
 
-  
-
     const newProduct = await prisma.product.create({
       data: {
         title,
         author,
         img,
         stock,
-        category:{
-          connect:{
-            id:category
-          }
+        category: {
+          connect: {
+            id: category,
+          },
         },
         description,
         isFeatured,
@@ -78,11 +76,7 @@ products.put("/:id", async (c) => {
       author,
       img,
       stock,
-      category:{
-        connect:{
-          id:category
-        }
-      },
+      category,
       description,
       isFeatured,
       isActive,

@@ -11,20 +11,22 @@ export default function ProductEdit() {
   const { state } = useLocation();
   const navigate = useNavigate();
   const backLocation = useBackLocation();
+
   const [title, setTitle] = useState("");
-  const [name, setName] = useState("");
+
   const [description, setDescription] = useState("");
-  const [stock, setStock] = useState("");
-  const [price, setPrice] = useState("");
+
   const [category, setCategory] = useState({});
+  const [price, setPrice] = useState("");
   const [image, setImage] = useState("");
+  const [selectedImage, setSelectedImage] = useState();
 
   useEffect(() => {
     if (state) {
       setTitle(state.title);
 
       setDescription(state.description);
-      setStock(state.stock);
+
       setPrice(state.price);
       setCategory({
         label: getCategoryName(state.category),
@@ -35,16 +37,26 @@ export default function ProductEdit() {
   }, [state]);
 
   function handleSubmit(e) {
+    console.log("submitting");
+    console.log("submit data", {
+      title,
+
+      description,
+      category: category.value,
+      img: image,
+      price,
+    });
     axios
       .put("products/" + state.id, {
         title,
+
         description,
         category: category.value,
         img: image,
         price,
       })
       .then((res) => {
-        alert("Product edit successfully");
+        alert("Product updated successfully");
         navigate(backLocation);
       })
       .catch((err) => {
