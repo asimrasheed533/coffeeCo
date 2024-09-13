@@ -50,9 +50,7 @@ export default function Products() {
           <div className="container__main__content__listing__table__header__entry">
             Actions
           </div>
-          <div className="container__main__content__listing__table__header__entry">
-            Status
-          </div>
+
           <div className="container__main__content__listing__table__header__entry">
             Type
           </div>
@@ -71,9 +69,7 @@ export default function Products() {
           <div className="container__main__content__listing__table__header__entry">
             Stock
           </div>
-          {/* <div className="container__main__content__listing__table__header__entry">
-            Category
-          </div> */}
+
           <div className="container__main__content__listing__table__header__entry">
             Description
           </div>
@@ -104,31 +100,7 @@ function TableEntry({ product, getData }) {
           }}
         />
       </div>
-      <TableEntryStatus
-        defaultValue={{
-          value: product.isActive,
-          label: product.isActive ? "Active" : "Deactive",
-        }}
-        options={[
-          {
-            value: true,
-            label: "Active",
-          },
-          {
-            value: false,
-            label: "Deactive",
-          },
-        ]}
-        onChange={(e) => {
-          axios
-            .put(`products/${product.id}`, {
-              isActive: e.value,
-            })
-            .then(() => {
-              getData();
-            });
-        }}
-      />
+
       <TableEntryStatus
         defaultValue={{
           value: product.type,
@@ -171,9 +143,7 @@ function TableEntry({ product, getData }) {
       <TableEntryText className="container__main__content__listing__table__content__list__entry">
         {product.stock}
       </TableEntryText>
-      {/* <TableEntryText className="container__main__content__listing__table__content__list__entry">
-        {getCategoryName(product.category)}
-      </TableEntryText> */}
+
       <TableEntryDescription className="container__main__content__listing__table__content__list__entry">
         {product?.description}
       </TableEntryDescription>

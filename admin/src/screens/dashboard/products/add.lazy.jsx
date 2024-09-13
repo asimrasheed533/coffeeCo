@@ -1,19 +1,20 @@
 import { Input, Select, Textarea } from "components";
 import { Link, useNavigate } from "react-router-dom";
-
 import axios from "../../../utils/axios";
-import { categories } from "../../../utils/constants";
 import { useBackLocation } from "global";
 import { useState } from "react";
+import { categories } from "../../../utils/constants";
 
 export default function ProductAdd() {
   const [selectedImage, setSelectedImage] = useState();
   const navigate = useNavigate();
   const backLocation = useBackLocation();
 
+  const [name, setName] = useState("");
   const [title, setTitle] = useState("");
 
   const [description, setDescription] = useState("");
+
   const [stock, setStock] = useState("");
   const [price, setPrice] = useState("");
   const [category, setCategory] = useState({});
@@ -22,12 +23,14 @@ export default function ProductAdd() {
   function handleSubmit(e) {
     axios
       .post("products/add", {
+        name,
         title,
         description,
         stock: Number(stock),
         category: category.value,
         img: image,
         price: Number(price),
+        isActive: true,
       })
       .then((res) => {
         alert("Product added successfully");
@@ -43,12 +46,18 @@ export default function ProductAdd() {
         <div className="product__form__col__panel">
           <Input
             type="text"
+            label="Name"
+            placeholder="Enter Name"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+          />
+          <Input
+            type="text"
             label="Title"
-            placeholder="Enter Book Title"
+            placeholder="Enter Title"
             value={title}
             onChange={(e) => setTitle(e.target.value)}
           />
-
           <Textarea
             label="Description"
             placeholder="Enter Description"
@@ -93,6 +102,7 @@ export default function ProductAdd() {
                     return;
                   }
 
+                  // max file size 1mb
                   if (file.size > 1024 * 1024) {
                     alert("File size should be less than 1mb");
                     return;
