@@ -41,7 +41,7 @@ model Product {
   stock       Int         @default(0)
   category    Category    @relation(fields: [categoryId], references: [id])
   categoryId  String
-  description String?
+  description String?     @db.MediumText
   isFeatured  Boolean?
   isActive    Boolean     @default(true)
   type        ProductType @default(product)
