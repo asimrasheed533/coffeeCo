@@ -15,43 +15,13 @@ export default function Shop() {
       <div className="shop__main__banner">
         <SliderBanner />
       </div>
-      
+
       <div className="shop__products__container">
         <div className="shop__products__filter__warper">
           <div className="shop__filter__heading">
             Total Products: <span>{data?.length}</span>
           </div>
           <div className="shop__filter__items">
-            <button
-              className={`shop__filter__item ${
-                isActive === 0 && "shop__filter__item__active"
-              }`}
-              onClick={() => {
-                setIsActive(0);
-                const sortedData = [...filterData];
-                sortedData.sort(
-                  (a, b) => new Date(b.published_at) - new Date(a.published_at)
-                );
-                setFilterData(sortedData);
-              }}
-            >
-              Newest
-            </button>
-            <button
-              className={`shop__filter__item ${
-                isActive === 1 && "shop__filter__item__active"
-              }`}
-              onClick={() => {
-                setIsActive(1);
-                const sortedData = [...filterData];
-                sortedData.sort(
-                  (a, b) => new Date(a.published_at) - new Date(b.published_at)
-                );
-                setFilterData(sortedData);
-              }}
-            >
-              Oldest
-            </button>
             <button
               className={`shop__filter__item ${
                 isActive === 3 && "shop__filter__item__active"
@@ -102,7 +72,6 @@ function ProductCard({ item }) {
       state={item}
       className="item__container__filter"
     >
-      
       <div className="product__frt__svg">
         <svg
           xmlns="http://www.w3.org/2000/svg"
