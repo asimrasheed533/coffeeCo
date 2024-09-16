@@ -20,6 +20,7 @@ export default function ProductEdit() {
   const [price, setPrice] = useState("");
   const [image, setImage] = useState("");
   const [selectedImage, setSelectedImage] = useState();
+  console.log("state", state);
 
   useEffect(() => {
     if (state) {
@@ -29,7 +30,7 @@ export default function ProductEdit() {
 
       setPrice(state.price);
       setCategory({
-        label: getCategoryName(state.category),
+        label: getCategoryName(state.categoryId),
         value: state.category,
       });
       setImage(state.img);
