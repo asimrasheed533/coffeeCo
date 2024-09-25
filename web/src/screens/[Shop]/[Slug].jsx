@@ -37,7 +37,7 @@ export default function Detail() {
         </div>
 
         <div className="detail__container__col">
-          <div className="detail__container__name">{state.name}</div>
+          <div className="detail__container__name">{state.title}</div>
           <div className="detail__price__entry">
             <div className="detail__price">Rs.{state.price}</div>
             <div className="detail__price__free">FREE DELIVERY</div>

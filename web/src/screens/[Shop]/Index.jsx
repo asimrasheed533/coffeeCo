@@ -92,7 +92,7 @@ function ProductCard({ item }) {
         <img src={item.img} alt="coffee" loading="lazy" />
       </div>
       <div className="item__container__name__warper">
-        <div className="item__container__name">{item.name}</div>
+        <div className="item__container__name">{item.title}</div>
         <div className="item__container__price">Rs:{item.price}</div>
       </div>
 

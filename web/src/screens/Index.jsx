@@ -95,7 +95,7 @@ function CoffeeCard({ product }) {
       <div className="item__container__img">
         <img src={product.img} alt="coffee" loading="lazy" />
       </div>
-      <div className="item__container__name">{product.name}</div>
+      <div className="item__container__name">{product.title}</div>
       <div className="item__container__price">Rs:{product.price}</div>
     </Link>
   );
