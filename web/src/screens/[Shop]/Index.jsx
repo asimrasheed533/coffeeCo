@@ -1,15 +1,23 @@
-import React, { useLayoutEffect, useState } from "react";
-
-import { useLocation, NavLink } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { useLocation } from "react-router-dom";
 import { Link } from "react-router-dom";
 import useQuery from "../../utils/useQuery";
 import SliderBanner from "../../components/SliderBanner";
 
 export default function Shop() {
-  const { pathname, state } = useLocation();
-  const path = pathname.split("/")[1];
   const [isActive, setIsActive] = useState(0);
-  const { data } = useQuery("/products");
+  const { data: products } = useQuery("/products");
+  console.log("products", products);
+  const location = useLocation();
+  const { id } = location.state || {};
+  const [filteredProducts, setFilteredProducts] = useState([]);
+  useEffect(() => {
+    if (id) {
+      const filtered = products?.filter((product) => product.categoryId === id);
+      setFilteredProducts(filtered);
+    }
+  }, [id, products]);
+
   return (
     <>
       <div className="shop__main__banner">
@@ -19,7 +27,7 @@ export default function Shop() {
       <div className="shop__products__container">
         <div className="shop__products__filter__warper">
           <div className="shop__filter__heading">
-            Total Products: <span>{data?.length}</span>
+            Total Products: <span>{products?.length}</span>
           </div>
           <div className="shop__filter__items">
             <button
@@ -51,10 +59,12 @@ export default function Shop() {
           </div>
         </div>
         <div className="shop__products__items">
-          {data?.length > 0 ? (
-            data?.map((item) => <ProductCard item={item} key={item.id} />)
+          {filteredProducts && filteredProducts.length > 0 ? (
+            filteredProducts.map((product) => (
+              <ProductCard product={product} key={product.id} />
+            ))
           ) : (
-            <div className="no-data">No products available.</div>
+            <p>No products available for this category.</p>
           )}
         </div>
       </div>
@@ -62,14 +72,14 @@ export default function Shop() {
   );
 }
 
-function ProductCard({ item }) {
+function ProductCard({ product }) {
   return (
     <Link
       onClick={() => {
         window.scrollTo(0, 0);
       }}
-      to={`${item.id}`}
-      state={item}
+      to={`${product.id}`}
+      state={product}
       className="item__container__filter"
     >
       <div className="product__frt__svg">
@@ -89,14 +99,14 @@ function ProductCard({ item }) {
         </svg>
       </div>
       <div className="item__filter__container__img">
-        <img src={item.img} alt="coffee" loading="lazy" />
+        <img src={product.img} alt="coffee" loading="lazy" />
       </div>
       <div className="item__container__name__warper">
-        <div className="item__container__name">{item.title}</div>
-        <div className="item__container__price">Rs:{item.price}</div>
+        <div className="item__container__name">{product.title}</div>
+        <div className="item__container__price">Rs:{product.price}</div>
       </div>
 
-      <div className="item__container__flavour">{item.flavour}</div>
+      <div className="item__container__flavour">{product.flavour}</div>
     </Link>
   );
 }

@@ -108,7 +108,7 @@ export default function Header({ setSidebarOpen }) {
               }}
             >
               <div className="container__main__header__right__panel__content">
-                <Link
+                {/* <Link
                   to="/dashboard/Profile"
                   // onClick={() => setUser(null)}
                   replace={true}
@@ -116,7 +116,7 @@ export default function Header({ setSidebarOpen }) {
                 >
                   <User size={20} color="currentColor" />
                   Profile
-                </Link>
+                </Link> */}
                 <Link
                   to="/"
                   onClick={() => setUser(null)}

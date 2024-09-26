@@ -17,6 +17,7 @@ export default function orders() {
   } = useQuery("orders");
 
   const order = response.data || [];
+  console.log("response", response);
 
   return (
     <div className="container__main__content__listing">
@@ -54,15 +55,12 @@ export default function orders() {
           <div className="container__main__content__listing__table__header__entry">
             Phone No.
           </div>
-          <div className="container__main__content__listing__table__header__entry">
-            Items
-          </div>
         </div>
         <div className="container__main__content__listing__table__content">
           {loading ? (
             <Loading dashboard />
           ) : (
-            order.map((item) => (
+            response?.map((item) => (
               <TableEntry item={item} key={item.id} getData={mutate} />
             ))
           )}
@@ -72,11 +70,10 @@ export default function orders() {
   );
 }
 
-function TableEntry({ item, getData }) {
+function TableEntry({ item }) {
   return (
     <div className="container__main__content__listing__table__content__list">
-      <div className="container__main__content__listing__table__content__list__entry">
-        <TableEntryViewButton />
+      {/* <div className="container__main__content__listing__table__content__list__entry">
         <TableEntryDeleteButton
           onClick={() => {
             axios.delete(`orders/${item?.id}`).then(() => {
@@ -84,21 +81,20 @@ function TableEntry({ item, getData }) {
             });
           }}
         />
-      </div>
+      </div> */}
       <TableEntryImage
         className="container__main__content__listing__table__content__list__entry"
         style={{ gap: 10, flexWrap: "wrap" }}
       >
         <Avatar
-          src={item.products[0].image}
+          src={item?.products[0].image}
           className="container__main__content__listing__table__content__list__entry__img"
         />
       </TableEntryImage>
-      <TableEntryText>{item.id}</TableEntryText>
+      <TableEntryText>{item?.id}</TableEntryText>
       <TableEntryText>{item?.email}</TableEntryText>
       <TableEntryText>{item?.firstName}</TableEntryText>
       <TableEntryText>{item?.number}</TableEntryText>
-      <TableEntryText>6</TableEntryText>
     </div>
   );
 }
