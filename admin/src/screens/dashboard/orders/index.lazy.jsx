@@ -70,10 +70,10 @@ export default function orders() {
   );
 }
 
-function TableEntry({ item }) {
+function TableEntry({ item, getData }) {
   return (
     <div className="container__main__content__listing__table__content__list">
-      {/* <div className="container__main__content__listing__table__content__list__entry">
+      <div className="container__main__content__listing__table__content__list__entry">
         <TableEntryDeleteButton
           onClick={() => {
             axios.delete(`orders/${item?.id}`).then(() => {
@@ -81,16 +81,16 @@ function TableEntry({ item }) {
             });
           }}
         />
-      </div> */}
-      <TableEntryImage
+      </div>
+      {/* <TableEntryImage
         className="container__main__content__listing__table__content__list__entry"
         style={{ gap: 10, flexWrap: "wrap" }}
       >
         <Avatar
-          src={item?.products[0].image}
+          src={item?.products[0].img}
           className="container__main__content__listing__table__content__list__entry__img"
         />
-      </TableEntryImage>
+      </TableEntryImage> */}
       <TableEntryText>{item?.id}</TableEntryText>
       <TableEntryText>{item?.email}</TableEntryText>
       <TableEntryText>{item?.firstName}</TableEntryText>
